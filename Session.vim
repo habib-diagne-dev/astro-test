@@ -13,18 +13,16 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +17 src/pages/about.astro
-badd +17 src/pages/index.astro
-badd +133 term://~/Desktop/projects/jsproject/astro-tuto/tutorial//83300:/usr/bin/zsh
-badd +22 src/pages/blog.astro
-badd +1 src/pages/posts/post-1.md
-badd +1 src/pages/posts/post-2.md
-badd +1 src/pages/posts/post-3.md
+badd +2 src/pages/about.astro
+badd +1 src/pages/index.astro
+badd +191 term://~/Desktop/projects/jsproject/astro-tuto/tutorial//83300:/usr/bin/zsh
+badd +2 src/pages/blog.astro
+badd +1 src/styles/global.css
 argglobal
 %argdel
-edit src/pages/blog.astro
+edit src/pages/index.astro
 argglobal
-balt src/pages/posts/post-1.md
+balt term://~/Desktop/projects/jsproject/astro-tuto/tutorial//83300:/usr/bin/zsh
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -35,12 +33,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 25 - ((22 * winheight(0) + 14) / 28)
+let s:l = 3 - ((2 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 25
-normal! 048|
+keepjumps 3
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
