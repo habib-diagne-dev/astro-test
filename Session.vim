@@ -13,13 +13,14 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +23 term://~/Desktop/projects/jsproject/astro-tuto/tutorial//222712:/usr/bin/zsh
-badd +7 src/pages/index.astro
+badd +15 src/pages/about.astro
+badd +1 src/pages/index.astro
+badd +61 term://~/Desktop/projects/jsproject/astro-tuto/tutorial//83300:/usr/bin/zsh
 argglobal
 %argdel
 edit src/pages/index.astro
 argglobal
-balt term://~/Desktop/projects/jsproject/astro-tuto/tutorial//222712:/usr/bin/zsh
+balt src/pages/about.astro
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -30,12 +31,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 15 - ((14 * winheight(0) + 14) / 28)
+let s:l = 17 - ((16 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 15
-normal! 026|
+keepjumps 17
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
